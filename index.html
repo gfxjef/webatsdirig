@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Producto</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            font-size: 16px; /* Base font size */
+        }
+        .divgene {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .div1, .div2 {
+            flex: 1;
+            min-width: 300px;
+        }
+        .div1 {
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+        .div2 > * {
+            margin-bottom: 15px;
+        }
+        .whisky-marca {
+            font-size: 0.8125em; /* 3pt smaller than base */
+        }
+        .product-name {
+            font-size: 1.5em; /* 8pt larger than base */
+            font-weight: bold;
+        }
+        .product-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-brand, .product-sku {
+            font-size: 0.8125em; /* 3pt smaller than base */
+            flex: 1;
+        }
+        .price-container {
+            display: flex;
+            gap: 20px;
+        }
+        .description {
+            font-size: 0.8125em; /* 3pt smaller than base */
+            height: 80px;
+            overflow-y: auto;
+        }
+        .quantity-add-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .quantity-container button {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            border: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .quantity-container span {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .add-to-cart {
+            flex-grow: 1;
+            padding: 10px;
+            background-color: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .store-info, .payment-info {
+            font-size: 0.8125em; /* 3pt smaller than base */
+        }
+
+        /*estilos para tragos*/
+
+
+        .divtragos-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        .divtragos-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .divtragos-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .divtragos-item {
+            border: 1px solid #ccc;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .divtragos-image {
+            width: 100%;
+            padding-top: 100%; /* Esto hace que la altura sea igual al ancho */
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .divtragos-image span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .divtragos-info {
+            padding: 5px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .divtragos-name, .divtragos-type {
+            margin: 2px 0;
+        }
+
+        .divtragos-more {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="divgene">
+        <div class="div1">
+            <p>Imagen</p>
+        </div>
+        <div class="div2">
+            <p class="whisky-marca">Whisky/Marca</p>
+            <p class="product-name">Nombre del Producto</p>
+            <div class="product-info-row">
+                <p class="product-brand">Marca del Producto</p>
+                <p class="product-sku">Sku de producto</p>
+            </div>
+            <div class="price-container">
+                <p>Precio producto: <span>$XX.XX</span></p>
+                <p>Precio descuento: <span>$XX.XX</span></p>
+            </div>
+            <div class="description">
+                Este producto tiene las grandes habilidades de los piscos más deliciosos de la vía láctea y las formas de cómo sobresalir en el mundo
+            </div>
+            <div class="quantity-add-container">
+                <div class="quantity-container">
+                    <button>-</button>
+                    <span>1</span>
+                    <button>+</button>
+                </div>
+                <button class="add-to-cart">Agregar Subtotal: S/369,9</button>
+            </div>
+            <p class="store-info">Retiro disponible en Local</p>
+            <p class="payment-info">Precio oferta válido para pagos con yape o transferencia</p>
+            <button>Ver información de la tiendas</button>
+        </div>
+    </div>
+
+        <!-- Nueva sección DIVTRAGOS -->
+        <div class="divtragos-container">
+            <h2 class="divtragos-title">DIVTRAGOS</h2>
+            <div class="divtragos-grid">
+                <!-- Se repite 5 veces -->
+                <div class="divtragos-item">
+                    <div class="divtragos-image">Imagen</div>
+                    <div class="divtragos-info">
+                        <p class="divtragos-name">Chilcano</p>
+                        <p class="divtragos-type">Tipo de trago</p>
+                    </div>
+                    <button class="divtragos-more">Ver0sws más</button>
+                </div>
+                <!-- Repetir el div anterior 4 veces más -->
+            </div>
+        </div>
+    
+
+</body>
+</html>
